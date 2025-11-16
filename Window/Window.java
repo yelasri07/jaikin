@@ -1,36 +1,24 @@
 package Window;
 
 import javax.swing.*;
-import java.awt.*;
-
 public class Window {
-
     private JFrame frame;
 
     public Window() {
-        frame = new JFrame("Chaikin");
+        this.frame = new JFrame("Jaikin");
 
-        frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
+        this.frame.setSize(800, 600);
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.frame.setLocationRelativeTo(null);
+        this.frame.setResizable(false);
 
         // Crée un JPanel directement dans la fenêtre
-        JPanel canvas = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                setBackground(Color.BLACK);  
+        DrawingPanel canvas = new DrawingPanel();
 
-                g.setColor(Color.WHITE);
-                g.setFont(new Font("Arial", Font.PLAIN, 16));
-                g.drawString("Click to add points  |  ENTER = start curve  |  C = clear  |  ESC = quit", 10, 20);
+        frame.addMouseListener(new HandleMouseEvent());
 
-            }
-        };
-
-        frame.add(canvas);
-        frame.setVisible(true);
+        this.frame.add(canvas);
+        this.frame.setVisible(true);
     }
 
     public JFrame getFrame() {
