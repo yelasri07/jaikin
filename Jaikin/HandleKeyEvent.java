@@ -3,14 +3,25 @@ package Jaikin;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JFrame;
+
 public class HandleKeyEvent implements KeyListener {
-    public void keyTyped(KeyEvent var1) {
-        
+    private JFrame frame;
+
+    HandleKeyEvent(JFrame frame) {
+        this.frame = frame;
     }
 
-    public void keyPressed(KeyEvent var1) {
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            Window.isStart = true;
+            frame.repaint();
+        }
     }
 
-    public void keyReleased(KeyEvent var1) {
+    public void keyTyped(KeyEvent e) {
+    }
+
+    public void keyReleased(KeyEvent e) {
     }
 }

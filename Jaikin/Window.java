@@ -8,6 +8,9 @@ import javax.swing.*;
 public class Window {
     private JFrame frame;
     public static List<Point> points = new ArrayList<>(); 
+    public static List<Point> tmpPoints = new ArrayList<>(); 
+    public static int steps = 0;
+    public static boolean isStart = false;
 
     public Window() {
         this.frame = new JFrame("Jaikin");
@@ -21,6 +24,7 @@ public class Window {
         JPanel canvas = new DrawingPanel();
 
         canvas.addMouseListener(new HandleMouseEvent(frame));
+        frame.addKeyListener(new HandleKeyEvent(frame));
 
         this.frame.add(canvas);
         this.frame.setVisible(true);
