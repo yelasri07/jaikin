@@ -23,7 +23,7 @@ public class Window {
         JPanel canvas = new DrawingPanel();
 
         canvas.addMouseListener(new HandleMouseEvent(frame));
-        frame.addKeyListener(new HandleKeyEvent(frame));
+        frame.addKeyListener(new HandleKeyEvent());
 
         this.frame.add(canvas);
         this.frame.setVisible(true);
