@@ -13,7 +13,7 @@ public class HandleMouseEvent implements MouseListener {
     };
 
     public void mouseClicked(MouseEvent e) {
-        if (!Window.isStart) {
+        if (!Window.isStart && e.getButton() == 1) {
             Window.points.add(new Point(e.getX(), e.getY()));
             Window.tmpPoints.add(new Point(e.getX(), e.getY()));
             frame.repaint();
