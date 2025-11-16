@@ -40,7 +40,7 @@ class DrawingPanel extends JPanel {
             g.drawLine(tmpPoints.get(i).x, tmpPoints.get(i).y, tmpPoints.get(i + 1).x, tmpPoints.get(i + 1).y);
         }
 
-        if (Window.steps > 6) {
+        if (Window.steps > 5) {
             Window.steps = 0;
             Window.tmpPoints = Window.points;
             return;
