@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class Window {
     private JFrame frame;
-    public static List<Point> points = new ArrayList<>(); 
-    public static List<Point> tmpPoints = new ArrayList<>(); 
+    public static List<Point> points = new ArrayList<>();
+    public static List<Point> tmpPoints = new ArrayList<>();
     public static int steps = 0;
     public static boolean isStart = false;
 
@@ -20,7 +20,6 @@ public class Window {
         this.frame.setLocationRelativeTo(null);
         this.frame.setResizable(false);
 
-        // Crée un JPanel directement dans la fenêtre
         JPanel canvas = new DrawingPanel();
 
         canvas.addMouseListener(new HandleMouseEvent(frame));

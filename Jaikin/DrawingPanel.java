@@ -3,11 +3,18 @@ package Jaikin;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.*;
 
 class DrawingPanel extends JPanel {
+    DrawingPanel() {
+        Timer timer = new Timer(1000, e -> {
+            this.repaint();
+        });
+
+        timer.start();
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -32,21 +39,16 @@ class DrawingPanel extends JPanel {
             g.drawLine(tmpPoints.get(i).x, tmpPoints.get(i).y, tmpPoints.get(i + 1).x, tmpPoints.get(i + 1).y);
         }
 
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-
-        }
-
-        if (Window.steps > 7) {
+        if (Window.steps > 6) {
             Window.steps = 0;
-            Window.tmpPoints = points;
+            Window.tmpPoints = Window.points;
+            return;
         }
 
-        this.Chaikin(tmpPoints);
+        Window.tmpPoints = this.Chaikin(tmpPoints);
     }
 
-    void Chaikin(List<Point> points) {
+    List<Point> Chaikin(List<Point> points) {
         List<Point> tmp = new ArrayList<>();
         tmp.add(points.get(0));
 
@@ -65,10 +67,8 @@ class DrawingPanel extends JPanel {
 
         tmp.add(points.get(points.size() - 1));
 
-
-        Window.tmpPoints = tmp;
         Window.steps++;
 
-        this.repaint();
+        return tmp;
     }
 }

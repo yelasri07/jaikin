@@ -13,7 +13,7 @@ public class HandleKeyEvent implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && !Window.isStart) {
             Window.isStart = true;
             frame.repaint();
         }
