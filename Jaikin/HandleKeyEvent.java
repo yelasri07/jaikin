@@ -23,7 +23,7 @@ public class HandleKeyEvent implements KeyListener {
             int n = Window.points.size();
 
             if (!Window.isStart) {
-                if (n >= 3) {
+                if (n >= 2) {
                     Window.isStart = true;
                     Window.steps = 0;
                     Window.tmpPoints = copyPoints(Window.points);
