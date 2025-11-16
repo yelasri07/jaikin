@@ -41,7 +41,7 @@ public class HandleKeyEvent implements KeyListener {
         }
 
         if (code == KeyEvent.VK_ESCAPE) {
-            frame.dispose();
+            System.exit(0);
         }
     }
 
