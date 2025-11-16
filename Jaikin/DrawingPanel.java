@@ -22,6 +22,7 @@ class DrawingPanel extends JPanel {
 
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.PLAIN, 16));
+        g.drawString("steps " + Window.steps, 10, 40);
         g.drawString("Click to add points  |  ENTER = start curve  |  C = clear  |  ESC = quit", 10, 20);
 
         List<Point> points = Window.points;
