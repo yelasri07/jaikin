@@ -27,7 +27,7 @@ class DrawingPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        this.setBackground(Color.BLACK);
+        // this.setBackground(Color.BLACK);
 
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -44,9 +44,10 @@ class DrawingPanel extends JPanel {
 
         int n = points.size();
 
-        if (n == 0 || n == 1) {
+        if (n < 2) {
             return;
         }
+
         if (n == 2) {
             g.setColor(Color.WHITE);
             Point p0 = points.get(0);
@@ -55,16 +56,17 @@ class DrawingPanel extends JPanel {
             return;
         }
 
+        if (!Window.isStart) return;
 
-        if (!Window.isStart) {
-            g.setColor(Color.WHITE);
-            for (int i = 0; i < points.size() - 1; i++) {
-                Point a = points.get(i);
-                Point b = points.get(i + 1);
-                g.drawLine(a.x, a.y, b.x, b.y);
-            }
-            return;
-        }
+        // if (!Window.isStart) {
+        // g.setColor(Color.WHITE);
+        // for (int i = 0; i < points.size() - 1; i++) {
+        // Point a = points.get(i);
+        // Point b = points.get(i + 1);
+        // g.drawLine(a.x, a.y, b.x, b.y);
+        // }
+        // return;
+        // }
 
         g.setColor(Color.WHITE);
         for (int i = 0; i < tmpPoints.size() - 1; i++) {
@@ -109,10 +111,6 @@ class DrawingPanel extends JPanel {
     }
 
     private List<Point> copyPoints(List<Point> src) {
-        List<Point> res = new ArrayList<>();
-        for (Point p : src) {
-            res.add(new Point(p.x, p.y));
-        }
-        return res;
+        return new ArrayList<>(src);
     }
 }

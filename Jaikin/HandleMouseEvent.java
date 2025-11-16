@@ -13,7 +13,10 @@ public class HandleMouseEvent implements MouseListener {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e) {}
+
+    @Override
+    public void mousePressed(MouseEvent e) {
         if (!Window.isStart) {
             int x = e.getX();
             int y = e.getY();
@@ -24,9 +27,6 @@ public class HandleMouseEvent implements MouseListener {
             frame.repaint();
         }
     }
-
-    @Override
-    public void mousePressed(MouseEvent e) {}
 
     @Override
     public void mouseReleased(MouseEvent e) {}

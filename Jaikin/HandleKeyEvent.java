@@ -14,6 +14,7 @@ public class HandleKeyEvent implements KeyListener {
     public HandleKeyEvent(JFrame frame) {
         this.frame = frame;
     }
+    
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -46,11 +47,7 @@ public class HandleKeyEvent implements KeyListener {
     }
 
     private List<Point> copyPoints(List<Point> src) {
-        List<Point> res = new ArrayList<>();
-        for (Point p : src) {
-            res.add(new Point(p.x, p.y));
-        }
-        return res;
+        return new ArrayList<>(src);
     }
 
     @Override
