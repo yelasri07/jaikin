@@ -18,9 +18,7 @@ public class Window {
         this.frame.setResizable(false);
 
         // Crée un JPanel directement dans la fenêtre
-        JPanel canvas = new JPanel() {
-            
-        };
+        JPanel canvas = new DrawingPanel();
 
         canvas.addMouseListener(new HandleMouseEvent(frame));
 
