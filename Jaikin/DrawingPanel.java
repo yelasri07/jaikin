@@ -22,22 +22,22 @@ class DrawingPanel extends JPanel {
 
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.PLAIN, 16));
-        g.drawString("steps " + Window.steps, 10, 40);
         g.drawString("Click to add points  |  ENTER = start curve  |  C = clear  |  ESC = quit", 10, 20);
-
+        
         List<Point> points = Window.points;
         List<Point> tmpPoints = Window.tmpPoints;
-
+        
         for (Point point : points) {
             g.setColor(Color.YELLOW);
-            g.drawOval(point.x, point.y, 5, 5);
+            g.drawOval(point.x - 6, point.y - 6, 6, 6);
         }
-
+        
         if (!Window.isStart)
-            return;
-
+        return;
+        
+        g.drawString("steps " + (Window.steps + 1), 10, 40);
         for (int i = 0; i < tmpPoints.size() - 1; i++) {
-            g.drawLine(tmpPoints.get(i).x, tmpPoints.get(i).y, tmpPoints.get(i + 1).x, tmpPoints.get(i + 1).y);
+            g.drawLine(tmpPoints.get(i).x - 3, tmpPoints.get(i).y - 3, tmpPoints.get(i + 1).x - 3, tmpPoints.get(i + 1).y - 3);
         }
 
         if (Window.steps > 5) {
