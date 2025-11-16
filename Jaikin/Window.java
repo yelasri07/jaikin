@@ -1,8 +1,13 @@
-package Window;
+package Jaikin;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
+
 public class Window {
     private JFrame frame;
+    public static List<Point> points = new ArrayList<>(); 
 
     public Window() {
         this.frame = new JFrame("Jaikin");
@@ -13,9 +18,11 @@ public class Window {
         this.frame.setResizable(false);
 
         // Crée un JPanel directement dans la fenêtre
-        DrawingPanel canvas = new DrawingPanel();
+        JPanel canvas = new JPanel() {
+            
+        };
 
-        frame.addMouseListener(new HandleMouseEvent());
+        canvas.addMouseListener(new HandleMouseEvent(frame));
 
         this.frame.add(canvas);
         this.frame.setVisible(true);
@@ -23,5 +30,14 @@ public class Window {
 
     public JFrame getFrame() {
         return frame;
+    }
+}
+
+class Point {
+    int x, y;
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }

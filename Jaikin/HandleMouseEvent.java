@@ -1,11 +1,20 @@
-package Window;
+package Jaikin;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JFrame;
+
 public class HandleMouseEvent implements MouseListener {
+    private JFrame frame;
+
+    HandleMouseEvent(JFrame frame) {
+        this.frame = frame;
+    }
+
     public void mouseClicked(MouseEvent e) {
-        System.out.println(e.getX());
+        Window.points.add(new Point(e.getX(), e.getY()));
+        frame.repaint();
     }
 
     public void mousePressed(MouseEvent e) {
