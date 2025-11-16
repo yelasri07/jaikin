@@ -2,7 +2,7 @@
 
 import javax.swing.JFrame;
 
-import Canvas.Canvas;
+import Jaikin.Panel;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,8 +10,9 @@ public class Main {
         frame.setSize(1000, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
 
-        Canvas canvas = new Canvas();
+        Panel canvas = new Panel();
         frame.add(canvas);
 
         frame.setVisible(true);
