@@ -10,25 +10,30 @@ public class HandleMouseEvent implements MouseListener {
 
     HandleMouseEvent(JFrame frame) {
         this.frame = frame;
-    };
+    }
 
+    @Override
     public void mouseClicked(MouseEvent e) {
-        if (!Window.isStart && e.getButton() == 1) {
-            Window.points.add(new Point(e.getX(), e.getY()));
-            Window.tmpPoints.add(new Point(e.getX(), e.getY()));
+        if (!Window.isStart) {
+            int x = e.getX();
+            int y = e.getY();
+
+            Window.points.add(new Point(x, y));
+            Window.tmpPoints.add(new Point(x, y));
+
             frame.repaint();
         }
     }
 
-    public void mousePressed(MouseEvent e) {
-    }
+    @Override
+    public void mousePressed(MouseEvent e) {}
 
-    public void mouseReleased(MouseEvent e) {
-    }
+    @Override
+    public void mouseReleased(MouseEvent e) {}
 
-    public void mouseEntered(MouseEvent e) {
-    }
+    @Override
+    public void mouseEntered(MouseEvent e) {}
 
-    public void mouseExited(MouseEvent e) {
-    }
+    @Override
+    public void mouseExited(MouseEvent e) {}
 }

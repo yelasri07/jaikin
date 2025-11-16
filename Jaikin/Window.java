@@ -3,17 +3,20 @@ package Jaikin;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Window {
     private JFrame frame;
+
     public static List<Point> points = new ArrayList<>();
     public static List<Point> tmpPoints = new ArrayList<>();
+
     public static int steps = 0;
     public static boolean isStart = false;
 
     public Window() {
-        this.frame = new JFrame("Jaikin");
+        this.frame = new JFrame("Chaikin");
 
         this.frame.setSize(800, 600);
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,7 +26,7 @@ public class Window {
         JPanel canvas = new DrawingPanel();
 
         canvas.addMouseListener(new HandleMouseEvent(frame));
-        frame.addKeyListener(new HandleKeyEvent());
+        frame.addKeyListener(new HandleKeyEvent(frame));
 
         this.frame.add(canvas);
         this.frame.setVisible(true);
