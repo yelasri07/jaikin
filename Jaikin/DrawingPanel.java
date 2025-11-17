@@ -67,7 +67,7 @@ class DrawingPanel extends JPanel {
 
         if (Window.steps >= MAX_STEPS) {
             Window.steps = 0;
-            Window.tmpPoints = copyPoints(points);
+            Window.tmpPoints = points;
         } else {
             Window.tmpPoints = chaikin(tmpPoints);
             Window.steps++;
@@ -98,9 +98,5 @@ class DrawingPanel extends JPanel {
         tmp.add(new Point(points.get(points.size() - 1).x, points.get(points.size() - 1).y));
 
         return tmp;
-    }
-
-    private List<Point> copyPoints(List<Point> src) {
-        return new ArrayList<>(src);
     }
 }

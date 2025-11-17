@@ -2,8 +2,6 @@ package Jaikin;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JFrame;
 
@@ -27,7 +25,7 @@ public class HandleKeyEvent implements KeyListener {
                 if (n >= 2) {
                     Window.isStart = true;
                     Window.steps = 0;
-                    Window.tmpPoints = copyPoints(Window.points);
+                    Window.tmpPoints = Window.points;
                 }
                 frame.repaint();
             }
@@ -44,10 +42,6 @@ public class HandleKeyEvent implements KeyListener {
         if (code == KeyEvent.VK_ESCAPE) {
             System.exit(0);
         }
-    }
-
-    private List<Point> copyPoints(List<Point> src) {
-        return new ArrayList<>(src);
     }
 
     @Override
