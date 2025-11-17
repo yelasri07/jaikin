@@ -12,23 +12,20 @@ import javax.swing.Timer;
 class DrawingPanel extends JPanel {
 
     private static final int MAX_STEPS = 6;
+    public static Timer timer;
 
     DrawingPanel() {
         setBackground(Color.BLACK);
 
-        Timer timer = new Timer(1000, e -> {
+        timer = new Timer(1000, e -> {
             this.repaint();
         });
 
-        timer.start();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        // this.setBackground(Color.BLACK);
-
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.PLAIN, 16));
         g.drawString("steps " + Window.steps, 10, 40);
@@ -48,13 +45,15 @@ class DrawingPanel extends JPanel {
             return;
         }
 
-        if (!Window.isStart) return;
+        if (!Window.isStart)
+            return;
 
         if (n == 2) {
             g.setColor(Color.WHITE);
             Point p0 = points.get(0);
             Point p1 = points.get(1);
             g.drawLine(p0.x, p0.y, p1.x, p1.y);
+            DrawingPanel.timer.stop();
             return;
         }
 
@@ -95,7 +94,7 @@ class DrawingPanel extends JPanel {
             tmp.add(r);
         }
 
-        tmp.add(new Point(points.get(points.size() - 1).x, points.get(points.size() - 1).y));
+        tmp.add(points.get(points.size() - 1));
 
         return tmp;
     }

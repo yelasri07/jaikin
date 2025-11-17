@@ -2,10 +2,12 @@ package Jaikin;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.TileObserver;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 public class HandleKeyEvent implements KeyListener {
 
@@ -14,13 +16,13 @@ public class HandleKeyEvent implements KeyListener {
     public HandleKeyEvent(JFrame frame) {
         this.frame = frame;
     }
-    
 
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
 
         if (code == KeyEvent.VK_ENTER) {
+    
             int n = Window.points.size();
 
             if (!Window.isStart) {
@@ -28,8 +30,10 @@ public class HandleKeyEvent implements KeyListener {
                     Window.isStart = true;
                     Window.steps = 0;
                     Window.tmpPoints = copyPoints(Window.points);
+
                 }
                 frame.repaint();
+                DrawingPanel.timer.start();
             }
         }
 
@@ -39,6 +43,7 @@ public class HandleKeyEvent implements KeyListener {
             Window.steps = 0;
             Window.isStart = false;
             frame.repaint();
+            DrawingPanel.timer.stop();
         }
 
         if (code == KeyEvent.VK_ESCAPE) {
@@ -51,8 +56,10 @@ public class HandleKeyEvent implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+    }
 
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+    }
 }
