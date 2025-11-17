@@ -48,25 +48,14 @@ class DrawingPanel extends JPanel {
             return;
         }
 
+        if (!Window.isStart) return;
+
         if (n == 2) {
             g.setColor(Color.WHITE);
             Point p0 = points.get(0);
             Point p1 = points.get(1);
             g.drawLine(p0.x, p0.y, p1.x, p1.y);
             return;
-        }
-
-        // if (!Window.isStart) return;
-
-        //Real-time line drawing
-        if (!Window.isStart) {
-        g.setColor(Color.WHITE);
-        for (int i = 0; i < points.size() - 1; i++) {
-        Point a = points.get(i);
-        Point b = points.get(i + 1);
-        g.drawLine(a.x, a.y, b.x, b.y);
-        }
-        return;
         }
 
         g.setColor(Color.WHITE);
